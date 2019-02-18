@@ -1,16 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.baidu.ocr.ui.camera;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.baidu.idcardquality.IDcardQualityProcess;
-import com.baidu.ocr.ui.R;
-import com.baidu.ocr.ui.crop.CropView;
-import com.baidu.ocr.ui.crop.FrameOverlayView;
+package com.laughing.ocr.ui.camera;
 
 import android.Manifest;
 import android.app.Activity;
@@ -32,6 +23,15 @@ import android.view.Surface;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.laughing.ocr.R;
+import com.laughing.ocr.idcardquality.IDcardQualityProcess;
+import com.laughing.ocr.ui.crop.CropView;
+import com.laughing.ocr.ui.crop.FrameOverlayView;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class CameraActivity extends Activity {
 
@@ -72,7 +72,7 @@ public class CameraActivity extends Activity {
         @Override
         public boolean onRequestPermission() {
             ActivityCompat.requestPermissions(CameraActivity.this,
-                    new String[] {Manifest.permission.CAMERA},
+                    new String[]{Manifest.permission.CAMERA},
                     PERMISSIONS_REQUEST_CAMERA);
             return false;
         }
@@ -202,11 +202,11 @@ public class CameraActivity extends Activity {
     private void initNative(final String token) {
         CameraNativeHelper.init(CameraActivity.this, token,
                 new CameraNativeHelper.CameraNativeInitCallback() {
-            @Override
-            public void onError(int errorCode, Throwable e) {
-                cameraView.setInitNativeStatus(errorCode);
-            }
-        });
+                    @Override
+                    public void onError(int errorCode, Throwable e) {
+                        cameraView.setInitNativeStatus(errorCode);
+                    }
+                });
     }
 
     private void showTakePicture() {
@@ -251,7 +251,7 @@ public class CameraActivity extends Activity {
                     != PackageManager.PERMISSION_GRANTED) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     ActivityCompat.requestPermissions(CameraActivity.this,
-                            new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},
+                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                             PERMISSIONS_EXTERNAL_STORAGE);
                     return;
                 }
@@ -426,7 +426,7 @@ public class CameraActivity extends Activity {
         }
         return result;
     }
-    
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -497,7 +497,6 @@ public class CameraActivity extends Activity {
 
     /**
      * 做一些收尾工作
-     *
      */
     private void doClear() {
         CameraThreadPool.cancelAutoFocusTimer();

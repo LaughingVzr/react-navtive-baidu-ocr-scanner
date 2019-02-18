@@ -22,9 +22,9 @@ import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.IDCardParams;
 import com.baidu.ocr.sdk.model.IDCardResult;
-import com.baidu.ocr.ui.camera.CameraActivity;
-import com.baidu.ocr.ui.camera.CameraNativeHelper;
-import com.baidu.ocr.ui.camera.CameraView;
+import com.laughing.ocr.ui.camera.CameraActivity;
+import com.laughing.ocr.ui.camera.CameraNativeHelper;
+import com.laughing.ocr.ui.camera.CameraView;
 
 import java.io.File;
 

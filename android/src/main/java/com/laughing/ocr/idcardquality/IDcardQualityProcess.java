@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.baidu.idcardquality;
+package com.laughing.ocr.idcardquality;
 
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;

@@ -1,10 +1,8 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.baidu.ocr.ui.crop;
+package com.laughing.ocr.ui.crop;
 
-
-import com.baidu.ocr.ui.util.DimensionUtil;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -18,6 +16,8 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.laughing.ocr.ui.util.DimensionUtil;
 
 public class FrameOverlayView extends View {
 

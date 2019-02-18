@@ -1,15 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.baidu.ocr.ui.camera;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+package com.laughing.ocr.ui.camera;
 
 import android.Manifest;
 import android.content.Context;
@@ -23,6 +15,14 @@ import android.support.v4.app.ActivityCompat;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * 5.0以下相机API的封装。

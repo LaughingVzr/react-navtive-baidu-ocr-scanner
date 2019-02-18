@@ -41,8 +41,8 @@ allprojects {
 }
 
 dependencies {
+    compile 'com.android.support:appcompat-v7:25.1.1'
     implementation 'com.facebook.react:react-native:+'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':ocr_ui')
 }
   

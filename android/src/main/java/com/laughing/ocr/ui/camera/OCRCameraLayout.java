@@ -1,9 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.baidu.ocr.ui.camera;
-
-import com.baidu.ocr.ui.R;
+package com.laughing.ocr.ui.camera;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,8 +11,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import com.laughing.ocr.R;
 
 public class OCRCameraLayout extends FrameLayout {
 
@@ -99,8 +98,8 @@ public class OCRCameraLayout extends FrameLayout {
         int left;
         int top;
 
-        ViewGroup.MarginLayoutParams leftDownViewLayoutParams = (MarginLayoutParams) leftDownView.getLayoutParams();
-        ViewGroup.MarginLayoutParams rightUpViewLayoutParams = (MarginLayoutParams) rightUpView.getLayoutParams();
+        MarginLayoutParams leftDownViewLayoutParams = (MarginLayoutParams) leftDownView.getLayoutParams();
+        MarginLayoutParams rightUpViewLayoutParams = (MarginLayoutParams) rightUpView.getLayoutParams();
         if (r < b) {
             int contentHeight = width * 4 / 3;
             int heightLeft = height - contentHeight;
