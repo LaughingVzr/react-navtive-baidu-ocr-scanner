@@ -16,14 +16,14 @@ import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.baidu.ocr.sdk.model.IDCardParams;
 import com.baidu.ocr.sdk.model.IDCardResult;
+import com.baidu.ocr.ui.camera.CameraActivity;
+import com.baidu.ocr.ui.camera.CameraNativeHelper;
+import com.baidu.ocr.ui.camera.CameraView;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.baidu.ocr.ui.camera.CameraActivity;
-import com.baidu.ocr.ui.camera.CameraNativeHelper;
-import com.baidu.ocr.ui.camera.CameraView;
 
 import java.io.File;
 
@@ -44,12 +44,12 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
     public ReactNativeBaiduOcrScannerModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
+        reactContext.addActivityEventListener(activityEventListener);
     }
 
 
     /**
      * 身份证正面扫描.
-     *
      */
     @ReactMethod
     public void IDCardFrontScanner() {
@@ -70,7 +70,6 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
 
     /**
      * 身份证反面扫描.
-     *
      */
     @ReactMethod
     public void IDCardBackScanner() {
