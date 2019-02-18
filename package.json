@@ -1,6 +1,6 @@
 {
   "name": "react-native-baidu-ocr-scanner",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,5 @@
   "peerDependencies": {
     "react-native": "0.50"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
