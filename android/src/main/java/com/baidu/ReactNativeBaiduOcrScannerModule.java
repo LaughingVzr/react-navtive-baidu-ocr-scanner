@@ -92,7 +92,7 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
      */
     @ReactMethod
     private void initAccessTokenLicenseFile() {
-        OCR.getInstance(reactContext).initAccessToken(new OnResultListener<AccessToken>() {
+        OCR.getInstance(getCurrentActivity()).initAccessToken(new OnResultListener<AccessToken>() {
             @Override
             public void onResult(AccessToken accessToken) {
                 String token = accessToken.getAccessToken();
@@ -114,7 +114,7 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
     private void initAuth() {
         //  初始化本地质量控制模型,释放代码在onDestory中
         //  调用身份证扫描必须加上 intent.putExtra(CameraActivity.KEY_NATIVE_MANUAL, true); 关闭自动初始化和释放本地模型
-        CameraNativeHelper.init(reactContext, OCR.getInstance(getCurrentActivity()).getLicense(),
+        CameraNativeHelper.init(getCurrentActivity(), OCR.getInstance(getCurrentActivity()).getLicense(),
                 new CameraNativeHelper.CameraNativeInitCallback() {
                     @Override
                     public void onError(int errorCode, Throwable e) {
