@@ -109,6 +109,25 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
     }
 
     /**
+     * 用明文ak，sk初始化
+     */
+    private void initAccessTokenWithAkSk() {
+        OCR.getInstance(getCurrentActivity()).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
+            @Override
+            public void onResult(AccessToken result) {
+                String token = result.getAccessToken();
+                initAuth();
+            }
+
+            @Override
+            public void onError(OCRError error) {
+                error.printStackTrace();
+                Log.e("zhiwei-ocr", error.getMessage());
+            }
+        }, getCurrentActivity().getApplicationContext(), "2YDjCPK0S0TS3lNuhG3GF3eU", "vOu9Ib8fcr0RLTsEaMReLgRq1BqoZgom");
+    }
+
+    /**
      * 初始化鉴权.
      */
     private void initAuth() {
