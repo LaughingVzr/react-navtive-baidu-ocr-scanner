@@ -51,11 +51,9 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
     /**
      * 身份证正面扫描.
      *
-     * @param successCallBack 成功回调
-     * @param errorCallBack   失败回调
      */
     @ReactMethod
-    public void IDCardFrontScanner(Callback successCallBack, Callback errorCallBack) {
+    public void IDCardFrontScanner() {
         Intent intent = new Intent(getReactApplicationContext(), CameraActivity.class);
         intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
                 FileUtil.getSaveFile(getReactApplicationContext()).getAbsolutePath());
@@ -74,11 +72,9 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
     /**
      * 身份证反面扫描.
      *
-     * @param successCallBack 成功回调
-     * @param errorCallBack   失败回调
      */
     @ReactMethod
-    public void IDCardBackScanner(Callback successCallBack, Callback errorCallBack) {
+    public void IDCardBackScanner() {
         Intent intent = new Intent(getReactApplicationContext(), CameraActivity.class);
         intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
                 FileUtil.getSaveFile(getCurrentActivity().getApplication()).getAbsolutePath());
