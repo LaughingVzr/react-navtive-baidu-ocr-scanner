@@ -42,7 +42,7 @@ allprojects {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path:':ocr_ui')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':ocr_ui')
 }
   
