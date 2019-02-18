@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.laughing.ocr.ui.camera;
+package com.baidu.ocr.ui.camera;
 
 import java.util.Timer;
 import java.util.TimerTask;

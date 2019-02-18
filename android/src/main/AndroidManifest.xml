@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.laughing.ocr">
+    package="com.baidu.baidu">
 
     <application>
         <activity
-            android:name="com.laughing.ocr.ui.camera.CameraActivity"
+            android:name="com.baidu.ocr.ui.camera.CameraActivity"
             android:configChanges="screenSize|orientation"
             android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
 

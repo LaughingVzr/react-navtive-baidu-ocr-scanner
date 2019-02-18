@@ -1,5 +1,5 @@
 
-package com.laughing.ocr;
+package com.baidu;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,13 +18,12 @@ import com.baidu.ocr.sdk.model.IDCardParams;
 import com.baidu.ocr.sdk.model.IDCardResult;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.BaseActivityEventListener;
-import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.laughing.ocr.ui.camera.CameraActivity;
-import com.laughing.ocr.ui.camera.CameraNativeHelper;
-import com.laughing.ocr.ui.camera.CameraView;
+import com.baidu.ocr.ui.camera.CameraActivity;
+import com.baidu.ocr.ui.camera.CameraNativeHelper;
+import com.baidu.ocr.ui.camera.CameraView;
 
 import java.io.File;
 

@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.laughing.ocr.ui.camera;
+package com.baidu.ocr.ui.camera;
 
 import android.Manifest;
 import android.app.Activity;
@@ -24,10 +24,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.laughing.ocr.R;
-import com.laughing.ocr.idcardquality.IDcardQualityProcess;
-import com.laughing.ocr.ui.crop.CropView;
-import com.laughing.ocr.ui.crop.FrameOverlayView;
+import com.baidu.baidu.R;
+import com.baidu.idcardquality.IDcardQualityProcess;
+import com.baidu.ocr.ui.crop.CropView;
+import com.baidu.ocr.ui.crop.FrameOverlayView;
 
 import java.io.File;
 import java.io.FileOutputStream;

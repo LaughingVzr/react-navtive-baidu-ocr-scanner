@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.laughing.ocr.ui.camera;
+package com.baidu.ocr.ui.camera;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -19,7 +19,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.laughing.ocr.R;
+import com.baidu.baidu.R;
 
 import java.io.File;
 

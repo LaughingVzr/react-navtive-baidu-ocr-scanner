@@ -1,5 +1,5 @@
 
-package com.laughing.ocr;
+package com.baidu;
 
 import java.util.Arrays;
 import java.util.Collections;

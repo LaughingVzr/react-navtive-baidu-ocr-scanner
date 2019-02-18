@@ -1,11 +1,11 @@
 /*
  * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
  */
-package com.laughing.ocr.ui.camera;
+package com.baidu.ocr.ui.camera;
 
 import android.content.Context;
 
-import com.laughing.ocr.idcardquality.IDcardQualityProcess;
+import com.baidu.idcardquality.IDcardQualityProcess;
 
 /**
  * Created by ruanshimin on 2018/1/23.

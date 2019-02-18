@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.laughing.ocr.ui.crop;
+package com.baidu.ocr.ui.crop;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,7 +18,7 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.laughing.ocr.ui.util.ImageUtil;
+import com.baidu.ocr.ui.util.ImageUtil;
 
 import java.io.IOException;
 
