@@ -28,7 +28,7 @@ RCT_EXPORT_MODULE()
 }
 
 //初始化
-RCT_EXPORT_METHOD(initOcr:(NSString*)ak  sk:(NSString*)sk  callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk  callback:(RCTResponseSenderBlock)callback)
 {
     NSLog(@"ak=%@ sk=%@", ak, sk);
     [[AipOcrService shardService] authWithAK:ak andSK:sk];
