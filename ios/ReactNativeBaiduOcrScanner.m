@@ -47,7 +47,9 @@ RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk  callb
                                                       // 打印出识别结果
                                                       NSLog(@"%@", result);
                                                   }
-                                                     failHandler:_failHandler];
+                                                     failHandler:^(NSError *error){
+                                                         
+                                                     }];
     }];
     // 展示ViewController
     [[self getRootVC] presentViewController: vc animated:YES completion:nil];
@@ -65,7 +67,9 @@ RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk  callb
                                                       // 打印出识别结果
                                                       NSLog(@"%@", result);
                                                   }
-                                                     failHandler:_failHandler];
+                                                    failHandler:^(NSError *error){
+                                                        
+                                                    }];
     }];
     // 展示ViewController
     [[self getRootVC] presentViewController: vc animated:YES completion:nil];

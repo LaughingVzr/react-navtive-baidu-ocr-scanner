@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B60BA8C221C01F200F1B339 /* AipBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B60BA87221BFD0600F1B339 /* AipBase.framework */; };
-		4B60BA8D221C01F200F1B339 /* AipOcrSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B60BA88221BFD0600F1B339 /* AipOcrSdk.framework */; };
-		4B60BA8E221C01F200F1B339 /* IdcardQuality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B60BA86221BFD0600F1B339 /* IdcardQuality.framework */; };
+		4BB617EC221C0F8F00BE16AB /* AipOcrSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB617E9221C0F8E00BE16AB /* AipOcrSdk.framework */; };
+		4BB617ED221C0F8F00BE16AB /* AipBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB617EA221C0F8E00BE16AB /* AipBase.framework */; };
+		4BB617EE221C0F8F00BE16AB /* IdcardQuality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB617EB221C0F8E00BE16AB /* IdcardQuality.framework */; };
 		B3E7B58A1CC2AC0600A0062D /* ReactNativeBaiduOcrScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* ReactNativeBaiduOcrScanner.m */; };
 /* End PBXBuildFile section */
 
@@ -171,9 +171,9 @@
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libReactNativeBaiduOcrScanner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeBaiduOcrScanner.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B60BA4A221BF75000F1B339 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		4B60BA86221BFD0600F1B339 /* IdcardQuality.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IdcardQuality.framework; path = "../../../../../../Downloads/aip-ocr-ios-sdk-3.0.2/lib/IdcardQuality.framework"; sourceTree = "<group>"; };
-		4B60BA87221BFD0600F1B339 /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipBase.framework; path = "../../../../../../Downloads/aip-ocr-ios-sdk-3.0.2/lib/AipBase.framework"; sourceTree = "<group>"; };
-		4B60BA88221BFD0600F1B339 /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipOcrSdk.framework; path = "../../../../../../Downloads/aip-ocr-ios-sdk-3.0.2/lib/AipOcrSdk.framework"; sourceTree = "<group>"; };
+		4BB617E9221C0F8E00BE16AB /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipOcrSdk.framework; sourceTree = "<group>"; };
+		4BB617EA221C0F8E00BE16AB /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipBase.framework; sourceTree = "<group>"; };
+		4BB617EB221C0F8E00BE16AB /* IdcardQuality.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IdcardQuality.framework; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* ReactNativeBaiduOcrScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactNativeBaiduOcrScanner.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* ReactNativeBaiduOcrScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeBaiduOcrScanner.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,9 +183,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B60BA8C221C01F200F1B339 /* AipBase.framework in Frameworks */,
-				4B60BA8D221C01F200F1B339 /* AipOcrSdk.framework in Frameworks */,
-				4B60BA8E221C01F200F1B339 /* IdcardQuality.framework in Frameworks */,
+				4BB617ED221C0F8F00BE16AB /* AipBase.framework in Frameworks */,
+				4BB617EC221C0F8F00BE16AB /* AipOcrSdk.framework in Frameworks */,
+				4BB617EE221C0F8F00BE16AB /* IdcardQuality.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,9 +233,6 @@
 		4B60BA85221BFD0500F1B339 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4B60BA87221BFD0600F1B339 /* AipBase.framework */,
-				4B60BA88221BFD0600F1B339 /* AipOcrSdk.framework */,
-				4B60BA86221BFD0600F1B339 /* IdcardQuality.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -243,6 +240,9 @@
 		52772C0A39AE4AB6A446A12F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4BB617EA221C0F8E00BE16AB /* AipBase.framework */,
+				4BB617E9221C0F8E00BE16AB /* AipOcrSdk.framework */,
+				4BB617EB221C0F8E00BE16AB /* IdcardQuality.framework */,
 				4B60BA4A221BF75000F1B339 /* React.xcodeproj */,
 			);
 			name = Libraries;
@@ -571,6 +571,10 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -588,6 +592,10 @@
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
