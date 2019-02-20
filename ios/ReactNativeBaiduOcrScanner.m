@@ -32,10 +32,21 @@ RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk  callb
 {
     NSLog(@"ak=%@ sk=%@", ak, sk);
     [[AipOcrService shardService] authWithAK:ak andSK:sk];
-    callback(@[[NSNumber numberWithInt:0]]);
+//    callback(@[[NSNumber numberWithInt:0]]);
 }
 
--(void) IDCardFrontScanner{
+
+// 扫描身份证正面
+RCT_EXPORT_METHOD(IDCardFrontScanner){
+    [self idCardFrontScanner];
+}
+
+// 扫描身份证反面
+RCT_EXPORT_METHOD(IDCardBackScanner){
+    [self idCardBackScanner];
+}
+
+-(void) idCardFrontScanner{
     UIViewController * vc =
     [AipCaptureCardVC ViewControllerWithCardType:CardTypeLocalIdCardFont andImageHandler:^(UIImage *image) {
         // 成功扫描出身份证
@@ -55,7 +66,8 @@ RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk  callb
     [[self getRootVC] presentViewController: vc animated:YES completion:nil];
 }
 
--(void) IDCardBackScanner{
+// 扫描身份证反面
+-(void) idCardBackScanner{
     UIViewController * vc =
     [AipCaptureCardVC ViewControllerWithCardType:CardTypeLocalIdCardFont andImageHandler:^(UIImage *image) {
         // 成功扫描出身份证
