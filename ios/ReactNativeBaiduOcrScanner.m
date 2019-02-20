@@ -4,22 +4,15 @@
 
 @implementation ReactNativeBaiduOcrScanner
 @synthesize bridge = _bridge;
-- (dispatch_queue_t)methodQueue
-{
-    return dispatch_get_main_queue();
-}
 RCT_EXPORT_MODULE()
-
 
 -(instancetype) init{
     self = [super init];
     
-    //添加监听
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getMessageContent:) name:@"Scan_Send_Message" object:nil];
-    
     return self;
 }
 
+// ViewController
 - (UIViewController*) getRootVC {
     UIViewController *root = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     while (root.presentedViewController != nil) {
@@ -29,7 +22,7 @@ RCT_EXPORT_MODULE()
 }
 
 //初始化
-RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk  callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk)
 {
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     NSLog(@"ak=%@ sk=%@ bundleID=%@", ak, sk,bundleIdentifier);
@@ -39,16 +32,9 @@ RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk  callb
 
 
 // 扫描身份证正面
-RCT_EXPORT_METHOD(IDCardFrontScanner){
-    [self idCardFrontScanner];
-}
-
-// 扫描身份证反面
-RCT_EXPORT_METHOD(IDCardBackScanner){
-    [self idCardBackScanner];
-}
-
--(void) idCardFrontScanner{
+RCT_REMAP_METHOD(IDCardFrontScanner,
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseResolveBlock)reject){
     UIViewController * vc =
     [AipCaptureCardVC ViewControllerWithCardType:CardTypeLocalIdCardFont andImageHandler:^(UIImage *image) {
         // 成功扫描出身份证
@@ -59,11 +45,22 @@ RCT_EXPORT_METHOD(IDCardBackScanner){
                                                       UIImageWriteToSavedPhotosAlbum(image, nil, nil, (__bridge void *)self);
                                                       // 打印出识别结果
                                                       NSDictionary *dict = [result yy_modelToJSONObject];
-                                                      NSLog(@"识别成功回调= %@", dict);
-                                                       [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
+                                                      NSLog(@"识别成功回调= %@", [result yy_modelToJSONString]);
+                                                      NSInteger resultNum = [dict[@"words_result_num"] integerValue];
+                                                      if (resultNum>0) {
+                                                          // Promise resolve
+                                                          resolve(dict);
+                                                      }else{
+                                                          // Promise reject
+                                                          reject(dict);
+                                                      }
+                                                      // 关闭扫描界面
+                                                      [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
                                                   }
                                                      failHandler:^(NSError *error){
-                                                         
+                                                         NSLog(@"%@", [error localizedDescription]);
+                                                         // Promise reject
+                                                         reject(error);
                                                      }];
     }];
     // 展示ViewController
@@ -71,27 +68,48 @@ RCT_EXPORT_METHOD(IDCardBackScanner){
 }
 
 // 扫描身份证反面
--(void) idCardBackScanner{
+RCT_REMAP_METHOD(IDCardBackScanner,
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseResolveBlock)reject){
     UIViewController * vc =
     [AipCaptureCardVC ViewControllerWithCardType:CardTypeLocalIdCardFont andImageHandler:^(UIImage *image) {
         // 成功扫描出身份证
         [[AipOcrService shardService] detectIdCardBackFromImage:image
-                                                     withOptions:nil
-                                                  successHandler:^(id result){
-                                                      // 在成功回调中，保存图片到系统相册
-                                                      UIImageWriteToSavedPhotosAlbum(image, nil, nil, (__bridge void *)self);
-                                                      // 打印出识别结果
-                                                      NSDictionary *dict = [result yy_modelToJSONObject];
-                                                      NSLog(@"识别成功回调= %@", dict);
-                                                      
-                                                       [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
-                                                  }
+                                                    withOptions:nil
+                                                 successHandler:^(id result){
+                                                     // 在成功回调中，保存图片到系统相册
+                                                     UIImageWriteToSavedPhotosAlbum(image, nil, nil, (__bridge void *)self);
+                                                     // 打印出识别结果
+                                                     NSDictionary *dict = [result yy_modelToJSONObject];
+                                                     NSLog(@"识别成功回调= %@", [result yy_modelToJSONString]);
+                                                     NSInteger resultNum = [dict[@"words_result_num"] integerValue];
+                                                     if (resultNum>0) {
+                                                         // Promise resolve
+                                                          resolve(dict);
+                                                     }else{
+                                                         // Promise reject
+                                                          reject(dict);
+                                                     }
+                                                     // 关闭扫描界面
+                                                     [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
+                                                 }
                                                     failHandler:^(NSError *error){
-                                                        
+                                                        NSLog(@"%@", [error localizedDescription]);
+                                                        // Promise reject
+                                                        reject(error);
                                                     }];
     }];
     // 展示ViewController
     [[self getRootVC] presentViewController: vc animated:YES completion:nil];
+}
+
+-(void) idCardFrontScanner:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject{
+    
+}
+
+// 扫描身份证反面
+-(void) idCardBackScanner{
+    
 }
 @end
   
