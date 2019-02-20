@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B652F0B221D452B00726DD3 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B652F06221D452A00726DD3 /* YYClassInfo.m */; };
+		4B652F0C221D452B00726DD3 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B652F07221D452B00726DD3 /* NSObject+YYModel.m */; };
 		4BB617EC221C0F8F00BE16AB /* AipOcrSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB617E9221C0F8E00BE16AB /* AipOcrSdk.framework */; };
 		4BB617ED221C0F8F00BE16AB /* AipBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB617EA221C0F8E00BE16AB /* AipBase.framework */; };
 		4BB617EE221C0F8F00BE16AB /* IdcardQuality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB617EB221C0F8E00BE16AB /* IdcardQuality.framework */; };
@@ -171,6 +173,11 @@
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libReactNativeBaiduOcrScanner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeBaiduOcrScanner.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B60BA4A221BF75000F1B339 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		4B652F06221D452A00726DD3 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		4B652F07221D452B00726DD3 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		4B652F08221D452B00726DD3 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		4B652F09221D452B00726DD3 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		4B652F0A221D452B00726DD3 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
 		4BB617E9221C0F8E00BE16AB /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipOcrSdk.framework; sourceTree = "<group>"; };
 		4BB617EA221C0F8E00BE16AB /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipBase.framework; sourceTree = "<group>"; };
 		4BB617EB221C0F8E00BE16AB /* IdcardQuality.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IdcardQuality.framework; sourceTree = "<group>"; };
@@ -237,6 +244,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4B652F0D221D454600726DD3 /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				4B652F0A221D452B00726DD3 /* NSObject+YYModel.h */,
+				4B652F07221D452B00726DD3 /* NSObject+YYModel.m */,
+				4B652F09221D452B00726DD3 /* YYClassInfo.h */,
+				4B652F06221D452A00726DD3 /* YYClassInfo.m */,
+				4B652F08221D452B00726DD3 /* YYModel.h */,
+			);
+			name = YYModel;
+			sourceTree = "<group>";
+		};
 		52772C0A39AE4AB6A446A12F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +270,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				4B652F0D221D454600726DD3 /* YYModel */,
 				B3E7B5881CC2AC0600A0062D /* ReactNativeBaiduOcrScanner.h */,
 				B3E7B5891CC2AC0600A0062D /* ReactNativeBaiduOcrScanner.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -441,6 +461,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B652F0C221D452B00726DD3 /* NSObject+YYModel.m in Sources */,
+				4B652F0B221D452B00726DD3 /* YYClassInfo.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* ReactNativeBaiduOcrScanner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

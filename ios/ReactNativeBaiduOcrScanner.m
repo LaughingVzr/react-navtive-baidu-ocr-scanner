@@ -1,5 +1,6 @@
 
 #import "ReactNativeBaiduOcrScanner.h"
+#import "YYModel.h"
 
 @implementation ReactNativeBaiduOcrScanner
 @synthesize bridge = _bridge;
@@ -57,7 +58,9 @@ RCT_EXPORT_METHOD(IDCardBackScanner){
                                                       // 在成功回调中，保存图片到系统相册
                                                       UIImageWriteToSavedPhotosAlbum(image, nil, nil, (__bridge void *)self);
                                                       // 打印出识别结果
-                                                      NSLog(@"%@", result);
+                                                      NSDictionary *dict = [result yy_modelToJSONObject];
+                                                      NSLog(@"识别成功回调= %@", dict);
+                                                       [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
                                                   }
                                                      failHandler:^(NSError *error){
                                                          
@@ -78,7 +81,10 @@ RCT_EXPORT_METHOD(IDCardBackScanner){
                                                       // 在成功回调中，保存图片到系统相册
                                                       UIImageWriteToSavedPhotosAlbum(image, nil, nil, (__bridge void *)self);
                                                       // 打印出识别结果
-                                                      NSLog(@"%@", result);
+                                                      NSDictionary *dict = [result yy_modelToJSONObject];
+                                                      NSLog(@"识别成功回调= %@", dict);
+                                                      
+                                                       [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
                                                   }
                                                     failHandler:^(NSError *error){
                                                         
