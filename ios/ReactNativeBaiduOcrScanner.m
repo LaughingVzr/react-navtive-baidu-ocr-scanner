@@ -30,7 +30,8 @@ RCT_EXPORT_MODULE()
 //初始化
 RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk  callback:(RCTResponseSenderBlock)callback)
 {
-    NSLog(@"ak=%@ sk=%@", ak, sk);
+    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+    NSLog(@"ak=%@ sk=%@ bundleID=%@", ak, sk,bundleIdentifier);
     [[AipOcrService shardService] authWithAK:ak andSK:sk];
 //    callback(@[[NSNumber numberWithInt:0]]);
 }
