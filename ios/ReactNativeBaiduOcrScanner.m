@@ -102,14 +102,5 @@ RCT_REMAP_METHOD(IDCardBackScanner,
     // 展示ViewController
     [[self getRootVC] presentViewController: vc animated:YES completion:nil];
 }
-
--(void) idCardFrontScanner:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject{
-    
-}
-
-// 扫描身份证反面
--(void) idCardBackScanner{
-    
-}
 @end
   
