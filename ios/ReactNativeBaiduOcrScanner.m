@@ -49,10 +49,10 @@ RCT_REMAP_METHOD(IDCardFrontScanner,
                                                       NSInteger resultNum = [dict[@"words_result_num"] integerValue];
                                                       if (resultNum>0) {
                                                           // Promise resolve
-                                                          resolve(dict);
+                                                          resolve([result yy_modelToJSONString]);
                                                       }else{
                                                           // Promise reject
-                                                          reject(dict);
+                                                          reject([result yy_modelToJSONString]);
                                                       }
                                                       // 关闭扫描界面
                                                       [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
@@ -60,7 +60,7 @@ RCT_REMAP_METHOD(IDCardFrontScanner,
                                                      failHandler:^(NSError *error){
                                                          NSLog(@"%@", [error localizedDescription]);
                                                          // Promise reject
-                                                         reject(error);
+                                                         reject([error yy_modelToJSONString]);
                                                      }];
     }];
     // 展示ViewController
@@ -85,10 +85,10 @@ RCT_REMAP_METHOD(IDCardBackScanner,
                                                      NSInteger resultNum = [dict[@"words_result_num"] integerValue];
                                                      if (resultNum>0) {
                                                          // Promise resolve
-                                                          resolve(dict);
+                                                          resolve([result yy_modelToJSONString]);
                                                      }else{
                                                          // Promise reject
-                                                          reject(dict);
+                                                          reject([result yy_modelToJSONString]);
                                                      }
                                                      // 关闭扫描界面
                                                      [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
@@ -96,7 +96,7 @@ RCT_REMAP_METHOD(IDCardBackScanner,
                                                     failHandler:^(NSError *error){
                                                         NSLog(@"%@", [error localizedDescription]);
                                                         // Promise reject
-                                                        reject(error);
+                                                        reject([error yy_modelToJSONString]);
                                                     }];
     }];
     // 展示ViewController
