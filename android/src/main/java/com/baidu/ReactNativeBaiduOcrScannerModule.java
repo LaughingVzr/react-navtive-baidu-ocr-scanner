@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.alibaba.fastjson.JSON;
 import com.baidu.ocr.sdk.OCR;
 import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
@@ -21,6 +21,7 @@ import com.baidu.ocr.ui.camera.CameraNativeHelper;
 import com.baidu.ocr.ui.camera.CameraView;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.BaseActivityEventListener;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -33,9 +34,8 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
 
     private final String LICENSE_FILE_NAME = "api.license";
 
-    private AlertDialog.Builder alertDialog;
 
-
+    private Promise globalPromise;
     private static final int REQUEST_CODE_PICK_IMAGE_FRONT = 201;
     private static final int REQUEST_CODE_PICK_IMAGE_BACK = 202;
     private static final int REQUEST_CODE_CAMERA = 102;
@@ -52,7 +52,8 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
      * 身份证正面扫描.
      */
     @ReactMethod
-    public void IDCardFrontScanner() {
+    public void IDCardFrontScanner(Promise promise) {
+        this.globalPromise = promise;
         Intent intent = new Intent(getReactApplicationContext(), CameraActivity.class);
         intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
                 FileUtil.getSaveFile(getReactApplicationContext()).getAbsolutePath());
@@ -72,7 +73,8 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
      * 身份证反面扫描.
      */
     @ReactMethod
-    public void IDCardBackScanner() {
+    public void IDCardBackScanner(Promise promise) {
+        this.globalPromise = promise;
         Intent intent = new Intent(getReactApplicationContext(), CameraActivity.class);
         intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
                 FileUtil.getSaveFile(getCurrentActivity().getApplication()).getAbsolutePath());
@@ -112,7 +114,7 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
      * 用明文ak，sk初始化
      */
     @ReactMethod
-    private void initAccessTokenWithAkSk(String apiKey,String secureKey) {
+    private void initAccessTokenWithAkSk(String apiKey, String secureKey) {
         OCR.getInstance(getCurrentActivity()).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
             @Override
             public void onResult(AccessToken result) {
@@ -165,19 +167,19 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
         @Override
         public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
             super.onActivityResult(activity, requestCode, resultCode, data);
-            if (requestCode == REQUEST_CODE_PICK_IMAGE_FRONT && resultCode == Activity.RESULT_OK) {
+            if (globalPromise != null && requestCode == REQUEST_CODE_PICK_IMAGE_FRONT && resultCode == Activity.RESULT_OK) {
                 Uri uri = data.getData();
                 String filePath = getRealPathFromURI(uri);
                 recIDCard(IDCardParams.ID_CARD_SIDE_FRONT, filePath);
             }
 
-            if (requestCode == REQUEST_CODE_PICK_IMAGE_BACK && resultCode == Activity.RESULT_OK) {
+            if (globalPromise != null && requestCode == REQUEST_CODE_PICK_IMAGE_BACK && resultCode == Activity.RESULT_OK) {
                 Uri uri = data.getData();
                 String filePath = getRealPathFromURI(uri);
                 recIDCard(IDCardParams.ID_CARD_SIDE_BACK, filePath);
             }
 
-            if (requestCode == REQUEST_CODE_CAMERA && resultCode == Activity.RESULT_OK) {
+            if (globalPromise != null && requestCode == REQUEST_CODE_CAMERA && resultCode == Activity.RESULT_OK) {
                 if (data != null) {
                     String contentType = data.getStringExtra(CameraActivity.KEY_CONTENT_TYPE);
                     String filePath = FileUtil.getSaveFile(getCurrentActivity()
@@ -209,12 +211,19 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
             @Override
             public void onResult(IDCardResult result) {
                 if (result != null) {
+                    // TODO: 判断结果并返回promise
+                    if (result.getWordsResultNumber() > 0) {
+                        globalPromise.resolve(JSON.toJSONString(result));
+                    } else {
+                        globalPromise.resolve(JSON.toJSONString(result));
+                    }
                     Log.d("zhiwei-ocr", result.toString());
                 }
             }
 
             @Override
             public void onError(OCRError error) {
+                globalPromise.reject("-1", error.getMessage());
                 Log.e("zhiwei-ocr", error.getMessage());
             }
         });
