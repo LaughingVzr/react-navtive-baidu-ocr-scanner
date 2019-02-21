@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.baidu.ocr.sdk.OCR;
 import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
@@ -197,7 +198,7 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
     };
 
 
-    private void recIDCard(String idCardSide, String filePath) {
+    private void recIDCard(String idCardSide, final String filePath) {
         IDCardParams param = new IDCardParams();
         param.setImageFile(new File(filePath));
         // 设置身份证正反面
@@ -211,9 +212,12 @@ public class ReactNativeBaiduOcrScannerModule extends ReactContextBaseJavaModule
             @Override
             public void onResult(IDCardResult result) {
                 if (result != null) {
-                    // TODO: 判断结果并返回promise
+                    // 判断结果并返回promise
                     if (result.getWordsResultNumber() > 0) {
-                        globalPromise.resolve(JSON.toJSONString(result));
+                        // 在返回中加入图片地址
+                        JSONObject resultObj = JSON.parseObject(JSON.toJSONString(result));
+                        resultObj.put("imgFilePath",filePath);
+                        globalPromise.resolve(JSON.toJSONString(resultObj));
                     } else {
                         globalPromise.resolve(JSON.toJSONString(result));
                     }
