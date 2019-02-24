@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B652F0B221D452B00726DD3 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B652F06221D452A00726DD3 /* YYClassInfo.m */; };
 		4B652F0C221D452B00726DD3 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B652F07221D452B00726DD3 /* NSObject+YYModel.m */; };
+		4BA68662221E6580006A9CA3 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA68661221E6580006A9CA3 /* Photos.framework */; };
 		4BB617EC221C0F8F00BE16AB /* AipOcrSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB617E9221C0F8E00BE16AB /* AipOcrSdk.framework */; };
 		4BB617ED221C0F8F00BE16AB /* AipBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB617EA221C0F8E00BE16AB /* AipBase.framework */; };
 		4BB617EE221C0F8F00BE16AB /* IdcardQuality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB617EB221C0F8E00BE16AB /* IdcardQuality.framework */; };
@@ -178,6 +179,7 @@
 		4B652F08221D452B00726DD3 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
 		4B652F09221D452B00726DD3 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
 		4B652F0A221D452B00726DD3 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		4BA68661221E6580006A9CA3 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		4BB617E9221C0F8E00BE16AB /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipOcrSdk.framework; sourceTree = "<group>"; };
 		4BB617EA221C0F8E00BE16AB /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipBase.framework; sourceTree = "<group>"; };
 		4BB617EB221C0F8E00BE16AB /* IdcardQuality.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IdcardQuality.framework; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BA68662221E6580006A9CA3 /* Photos.framework in Frameworks */,
 				4BB617ED221C0F8F00BE16AB /* AipBase.framework in Frameworks */,
 				4BB617EC221C0F8F00BE16AB /* AipOcrSdk.framework in Frameworks */,
 				4BB617EE221C0F8F00BE16AB /* IdcardQuality.framework in Frameworks */,
@@ -240,6 +243,7 @@
 		4B60BA85221BFD0500F1B339 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BA68661221E6580006A9CA3 /* Photos.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
