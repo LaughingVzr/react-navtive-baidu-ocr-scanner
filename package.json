@@ -1,12 +1,13 @@
 {
   "name": "react-native-baidu-ocr-idcard-scanner",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "BaiDu IdCard(China) scan component for React Native.",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [
-    "react-native" ,"IdCard","Native Component"
+    "react-native",
+    "IdCard",
+    "Native Component"
   ],
   "author": "LaughingVzr",
   "license": "MIT",
