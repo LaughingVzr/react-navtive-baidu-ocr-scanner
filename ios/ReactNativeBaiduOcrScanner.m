@@ -169,6 +169,10 @@ RCT_REMAP_METHOD(IDCardBackScanner,
     }
 }
 
+// 重写底层事件支持，以防止debug时的事件中断
+- (NSArray<NSString *> *)supportedEvents {
+    return @[@"onSessionConnect"];
+}
 
 @end
   
