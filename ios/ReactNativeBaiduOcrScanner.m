@@ -34,7 +34,7 @@ RCT_EXPORT_METHOD(initAccessTokenWithAkSk:(NSString*)ak  sk:(NSString*)sk)
 // 扫描身份证正面
 RCT_REMAP_METHOD(IDCardFrontScanner,
                   resolver:(RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseResolveBlock)reject){
+                  rejecter:(RCTPromiseRejectBlock)reject){
     UIViewController * vc =
     [AipCaptureCardVC ViewControllerWithCardType:CardTypeLocalIdCardFont andImageHandler:^(UIImage *image) {
         // 成功扫描出身份证
@@ -72,7 +72,7 @@ RCT_REMAP_METHOD(IDCardFrontScanner,
                                                           resolve([mutableDict yy_modelToJSONString]);
                                                       }else{
                                                           // Promise reject
-                                                          reject([result yy_modelToJSONString]);
+                                                          reject(@"-1",[result yy_modelToJSONString],nil);
                                                       }
                                                       // 关闭扫描界面
                                                       [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
@@ -80,7 +80,7 @@ RCT_REMAP_METHOD(IDCardFrontScanner,
                                                      failHandler:^(NSError *error){
                                                          NSLog(@"%@", [error localizedDescription]);
                                                          // Promise reject
-                                                         reject([error yy_modelToJSONString]);
+                                                         reject(@"-1",[error yy_modelToJSONString],nil);
                                                      }];
     }];
     // 展示ViewController
@@ -90,7 +90,7 @@ RCT_REMAP_METHOD(IDCardFrontScanner,
 // 扫描身份证反面
 RCT_REMAP_METHOD(IDCardBackScanner,
                   resolve:(RCTPromiseResolveBlock)resolve
-                  reject:(RCTPromiseResolveBlock)reject){
+                  reject:(RCTPromiseRejectBlock)reject){
     UIViewController * vc =
     [AipCaptureCardVC ViewControllerWithCardType:CardTypeLocalIdCardFont andImageHandler:^(UIImage *image) {
         // 成功扫描出身份证
@@ -126,7 +126,7 @@ RCT_REMAP_METHOD(IDCardBackScanner,
                                                         resolve([mutableDict yy_modelToJSONString]);
                                                      }else{
                                                          // Promise reject
-                                                        reject([result yy_modelToJSONString]);
+                                                        reject(@"-1",[result yy_modelToJSONString],nil);
                                                      }
                                                      // 关闭扫描界面
                                                      [[self getRootVC].presentingViewController dismissViewControllerAnimated:YES completion:nil ];
@@ -134,7 +134,7 @@ RCT_REMAP_METHOD(IDCardBackScanner,
                                                     failHandler:^(NSError *error){
                                                         NSLog(@"%@", [error localizedDescription]);
                                                         // Promise reject
-                                                        reject([error yy_modelToJSONString]);
+                                                        reject(@"-1",[error yy_modelToJSONString],nil);
                                                     }];
     }];
     // 展示ViewController
